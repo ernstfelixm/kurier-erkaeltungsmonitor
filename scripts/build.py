@@ -453,6 +453,12 @@ def create(
         True,
     )
 
+    age_sex = aggregate(
+    patient,
+    ("week", "age", "sex"),
+    True,
+    )
+
     clinic = aggregate(
         hospital,
         ("week", "region", "station"),
@@ -471,6 +477,7 @@ def create(
         "overview.json": overview,
         "states.json": states,
         "age-groups.json": ages,
+        "age-sex.json": age_sex,
         "hospital.json": clinic,
         "latest.json": meta,
         "seasonal.json": seasonal,
